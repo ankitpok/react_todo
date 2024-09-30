@@ -1,8 +1,8 @@
 import AppName from "./components/AppName";
 import AddTODO from "./components/AddTODO";
 import TODOItem from "./components/TODOItem";
-import TODOItem2 from "./components/TODOItem2";
 import "./app.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   let todoItems = [
@@ -26,7 +26,6 @@ function App() {
 
         <AddTODO></AddTODO>
         <TODOItem item={todoItems}></TODOItem>
-        {/* <TODOItem2></TODOItem2> */}
       </div>
     </center>
   );
