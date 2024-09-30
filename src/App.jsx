@@ -1,24 +1,32 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import AppName from "./components/AppName";
 import AddTODO from "./components/AddTODO";
-import TODOItem1 from "./components/TODOItem1";
+import TODOItem from "./components/TODOItem";
 import TODOItem2 from "./components/TODOItem2";
 import "./app.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  let todoItems = [
+    {
+      item: "Do Homework",
+      date: "2024/1/1",
+    },
+    {
+      item: "Read Book",
+      date: "2024/1/1",
+    },
+    {
+      item: "Practise coding",
+      date: "2024/1/1",
+    },
+  ];
   return (
     <center>
-      <div class="container text-center">
+      <div className="container text-center">
         <AppName></AppName>
 
         <AddTODO></AddTODO>
-
-        <TODOItem1></TODOItem1>
-        <TODOItem2></TODOItem2>
+        <TODOItem item={todoItems}></TODOItem>
+        {/* <TODOItem2></TODOItem2> */}
       </div>
     </center>
   );
