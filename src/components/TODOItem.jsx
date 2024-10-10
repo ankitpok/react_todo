@@ -1,5 +1,5 @@
-import styles from "./AddTODO.module.css";
-function TODOItem({ item }) {
+function TODOItem({ item, onClickDelete }) {
+
   return (
     <>
       {item.map((todo, index) => (
@@ -7,7 +7,7 @@ function TODOItem({ item }) {
           <div className="col-6">{todo.item}</div>
           <div className="col-4">{todo.date}</div>
           <div className="col-2">
-            <button className={`btn btn-danger custom-btn`}>Delete</button>
+            <button className={`btn btn-danger custom-btn`} onClick={() =>onClickDelete(todo)}>Delete</button>
           </div>
         </div>
       ))}
