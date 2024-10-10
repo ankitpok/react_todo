@@ -1,6 +1,20 @@
 import styles from "./AddTODO.module.css";
+import { useState } from "react";
 
-function AddTODO({onClickAdd , onChangeTextField, onChangeDateField, newTodoText, newTodoDate}) {
+function AddTODO({handleOnClickAdd}) {
+  let [newTodoText , setNewTodoText] = useState("")
+  let [newTodoDate , setNewTodoDate] = useState("")
+  let onChangeTextField = () => {
+    setNewTodoText(event.target.value)
+  }
+  let onChangeDateField = () => {
+    setNewTodoDate(event.target.value)
+  }
+  const onClickAdd = () => {
+    handleOnClickAdd(newTodoText,newTodoDate)
+    setNewTodoText("")
+    setNewTodoDate("")
+  }
   return (
     <div className={`row c-row`}>
       <div className="col-6">
