@@ -1,37 +1,34 @@
 import styles from "./AddTODO.module.css";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 function AddTODO({handleOnClickAdd}) {
-  let [newTodoText , setNewTodoText] = useState("")
-  let [newTodoDate , setNewTodoDate] = useState("")
-  let onChangeTextField = () => {
-    setNewTodoText(event.target.value)
-  }
-  let onChangeDateField = () => {
-    setNewTodoDate(event.target.value)
-  }
+
+  const nameInput = useRef()
+  const dateInput = useRef()
+
   const onClickAdd = () => {
+    let newTodoText = nameInput.current.value
+    let newTodoDate = dateInput.current.value
     handleOnClickAdd(newTodoText,newTodoDate)
-    setNewTodoText("")
-    setNewTodoDate("")
+    nameInput.current.value = ""
+    dateInput.current.value = ""
+    
   }
   return (
     <div className={`row c-row`}>
       <div className="col-6">
         <input
           type="text"
+          ref={nameInput}
           className={`form-group ${styles.todoinput}`}
           placeholder="Enter TODO here"
           aria-label="Username"
           aria-describedby="basic-addon1"
-          onChange={onChangeTextField}
-          value={newTodoText}
         />
       </div>
       <div className="col-4">
         <input type="date" name="" id="" 
-        onChange={onChangeDateField}
-        value={newTodoDate}
+        ref={dateInput}
         />
       </div>
       <div className="col-2">
