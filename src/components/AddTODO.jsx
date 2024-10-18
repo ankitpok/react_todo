@@ -1,15 +1,18 @@
+import { TodoItemsContext } from "../store/todo-item-store";
 import styles from "./AddTODO.module.css";
-import { useState, useRef } from "react";
+import { useContext, useRef  } from "react";
 
-function AddTODO({handleOnClickAdd}) {
 
+function AddTODO() {
+  const contextObj = useContext(TodoItemsContext)
+  const addNewItem = contextObj.addNewItem
   const nameInput = useRef()
   const dateInput = useRef()
 
   const onClickAdd = () => {
     let newTodoText = nameInput.current.value
     let newTodoDate = dateInput.current.value
-    handleOnClickAdd(newTodoText,newTodoDate)
+    addNewItem(newTodoText,newTodoDate)
     nameInput.current.value = ""
     dateInput.current.value = ""
     
